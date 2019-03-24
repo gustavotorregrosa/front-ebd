@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"> -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+      .hidden{
+        display: none;
+      }
+    </style>
+
+    <title>Escola Bíblica</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <header>
+        <nav>
+          <div class="nav-wrapper">
+            <a
+              style="display: block;"
+              href="#"
+              data-target="slide-out"
+              class="sidenav-trigger"
+              ><i class="material-icons large">menu</i></a
+            >
+            <a href="#" class="brand-logo">Escola bíblica</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><a class="waves-effect waves-light btn">Logout</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <aside>
+        <ul id="slide-out" class="sidenav">
+          <li>
+            <div class="user-view">
+              <div class="background">
+                <img src="assets/sol.jpg" />
+              </div>
+              <a href="#name"
+                ><span class="white-text name">Gustavo Torregrosa</span></a
+              >
+              <a href="#email"
+                ><span class="white-text email"
+                  >gustavo.torregrosa@gmail.com</span
+                ></a
+              >
+            </div>
+          </li>
+         <menu-lateral-cursos @evtselecionacurso="selecionacurso" v-bind:cursos="cursos"></menu-lateral-cursos>
+        </ul>
+      </aside>
+
+      <main>
+        <div style="margin-top: 1em; padding: 3em;">
+          <h4 style="margin-bottom: 2em;">{{this.nomeatual}}</h4>
+          <form action="">
+            <div class="row">
+              <div class="col s12 m6 card input-field" style="padding: 2em;">
+            
+                <quadro-capa-curso-atual v-bind:cursos="cursos" v-bind:cursoatual="cursoatual"></quadro-capa-curso-atual>
+
+              </div>
+              
+              <div class="col s12 m6">
+                  <quadro-lista-licoes @alteralicao="alteralicao" v-bind:cursos="cursos" v-bind:cursoatual="cursoatual" v-bind:licaoatual="licaoatual"></quadro-lista-licoes>
+              </div>
+               
+            </div>
+
+            <div class="row">
+              <h6>Lição {{ licaoatual+1 }}: {{ cursos[cursoatual].licoes[licaoatual].nome }}</h6>
+              <div class="col s12 m6 card input-field" style="padding: 2em;">
+
+                <quadro-conteudo-licao  v-bind:cursos="cursos" v-bind:cursoatual="cursoatual" v-bind:licaoatual="licaoatual"></quadro-conteudo-licao>
+
+              </div>
+              <div class="col s12 m6">
+                <div
+                  class="card input-field"
+                  style="min-height: 3em; padding: 1em;"
+                >
+                  <h5 style="display: inline">Perguntas da lição</h5>
+                  <button class="waves-effect waves-light btn right">
+                    Adicionar
+                  </button>
+                  <br /><br /><br />
+                  <ul class="collapsible popout">
+                    <li>
+                      <div class="collapsible-header">Primeira pergunta</div>
+                      <div class="collapsible-body ">
+                        <div class="row">
+                          <div class="col m6">
+                            <div class="input-field col s12">
+                              <textarea
+                                id="textarea1"
+                                class="materialize-textarea"
+                                style="min-height: 10em;"
+                              ></textarea>
+                              <label for="textarea1">Pergunta</label>
+                            </div>
+                          </div>
+                          <div class="col m6">
+                            <div class="input-field col s12">
+                              <textarea
+                                id="textarea1"
+                                class="materialize-textarea"
+                                style="min-height: 10em;"
+                              ></textarea>
+                              <label for="textarea1">Resposta</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="collapsible-header">Segunda pergunta</div>
+                      <div class="collapsible-body">
+                        <div class="row">
+                          <div class="col m6">
+                            <div class="input-field col s12">
+                              <textarea
+                                id="textarea1"
+                                class="materialize-textarea"
+                                style="min-height: 10em;"
+                              ></textarea>
+                              <label for="textarea1">Pergunta</label>
+                            </div>
+                          </div>
+                          <div class="col m6">
+                            <div class="input-field col s12">
+                              <textarea
+                                id="textarea1"
+                                class="materialize-textarea"
+                                style="min-height: 10em;"
+                              ></textarea>
+                              <label for="textarea1">Resposta</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="collapsible-header">Terceira pergunta</div>
+                      <div class="collapsible-body">
+                        <div class="row">
+                          <div class="col m6">
+                            <div class="input-field col s12">
+                              <textarea
+                                id="textarea1"
+                                class="materialize-textarea"
+                                style="min-height: 10em;"
+                              ></textarea>
+                              <label for="textarea1">Pergunta</label>
+                            </div>
+                          </div>
+                          <div class="col m6">
+                            <div class="input-field col s12">
+                              <textarea
+                                id="textarea1"
+                                class="materialize-textarea"
+                                style="min-height: 10em;"
+                              ></textarea>
+                              <label for="textarea1">Resposta</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+  </body>
+
+
+  <script type="text/x-template" id="quadro-conteudo-licao">
+  
+    <div>
+
+        <div class="input-field inline col m12">
+            <input id="nome_licao" type="text"v-model.lazy="licao.nome"/>
+            <label for="nome_licao">Nome da lição</label>
+          </div>
+        <div class="input-field inline col m12">
+          <textarea
+            v-model="licao.conteudo"
+            id="editor"
+            style="min-height: 10em;"
+            class="materialize-textarea"
+          ></textarea>
+          <label for="editor">Conteúdo</label>
+        </div>
+        <div class="input-field inline col m12">
+          <div class="col m6" style="padding: 1em;">
+            <img
+              v-bind:src="licao.fotocapa"
+              
+              alt=""
+              style="border-radius: 0.3em;"
+              class="responsive-img materialboxed"
+            />
+          </div>
+          <div class="col m6" style="padding: 1em;">
+            <div class="file-field input-field">
+              <div class="btn">
+                <span>Arquivo</span>
+                <input type="file" />
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" />
+                <span class="helper-text"
+                  >Imagem de conteúdo da lição</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="input-field inline col m12">
+          <div class=" input-field inline col m6">
+            <input id="email" type="text" />
+            <label for="email">Link vídeo</label>
+          </div>
+          <!-- <div class="input-field col m6">
+            <select>
+              <option value="" disabled selected
+                >Escolha uma opção</option
+              >
+              <option value="1">Iniciante</option>
+              <option value="2">Intermediário</option>
+              <option value="3">Avançado</option>
+            </select>
+            <label>Nível</label>
+          </div> -->
+        </div>
+      </div>
+  </script>
+
+
+
+  <script type="text/x-template" id="quadro-capa-curso-atual">
+      <div id="div-quadro-capa-curso-atual">
+        <div class="input-field inline col m12">
+          <input id="nome_curso" type="text" v-model.lazy="curso.nome" />
+          <label for="nome_curso">Nome do curso</label>
+        </div>
+        <div class="input-field inline col m12">
+          <textarea v-model="curso.descricao"
+            id="textarea1"
+            style="min-height: 10em;"
+            class="materialize-textarea"
+          ></textarea>
+          <label for="textarea1">Descrição</label>
+        </div>
+        <div class="input-field inline col m12">
+          <div class="col m6" style="padding: 1em;">
+            <img
+              v-bind:src="curso.fotocapa"
+              alt=""
+              style="border-radius: 0.3em;"
+              class="responsive-img materialboxed"
+            />
+          </div>
+          <div class="col m6" style="padding: 1em;">
+            <div class="file-field input-field">
+              <div class="btn">
+                <span>Arquivo</span>
+                <input type="file" />
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" />
+                <span class="helper-text">Imagem de capa do curso</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="input-field inline col m12">
+          <div class="col m6" style="padding: 1em;">
+            <div class="input-field inline col m12">
+              <input id="pontuacao_curso" type="number" v-model="curso.pontuacao" />
+              <label for="pontuacao_curso">Pontuação</label>
+            </div>
+          </div>
+          <div class="col m6" style="padding: 3em;">
+            <label>
+              <input type="checkbox" v-model:checked="curso.checked" />
+              <span>Sequencial</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+  </script>
+
+
+  <script type="text/x-template" id="quadro-lista-licoes">
+    <div id="div-quadro-listas-licoes">
+        <div
+          class="card input-field"
+          style="min-height: 3em; padding: 1em;"
+        >
+          <h5 style="display: inline">Lições do curso</h5>
+          <button class="waves-effect waves-light btn right">
+            Adicionar
+          </button>
+          <br /><br /><br />
+          <div class="collection" style="border: none;">
+
+
+            <a v-bind:class="[{active: licao.ativa}, 'collection-item']" v-for="(licao, index) in licoes"
+                @click="selecionalicao(index)"
+            >
+              Lição {{index+1}}: {{licao.nome}}
+            </a>
+            <!-- <a href="#!" class="collection-item"
+              >Lição 1: Os primeiros 30 anos</a
+            >
+            <a href="#!" class="collection-item">Lição 2: O baptismo</a>
+            <a href="#!" class="collection-item"
+              >Lição 3: O ministério</a
+            >
+            <a href="#!" class="collection-item active"
+              >Lição 4: O sermão da montanha</a
+            >
+            <a href="#!" class="collection-item"
+              >Lição 5: A fé do centurião</a
+            >
+            <a href="#!" class="collection-item"
+              >Lição 6: A mulher hemorrágica</a
+            > -->
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </script>
+
+  <script type="text/x-template" id="tmpl-menu-lateral-cursos">
+    <div>
+          <li><a class="dropdown-trigger" href="#!" data-target="menu-cursos">Cursos<i
+            class="material-icons right">arrow_drop_down</i></a></li>
+      <ul id='menu-cursos' class='dropdown-content'>
+        <li @click="selecionacurso(index)" v-for="(curso, index) in cursos" class="sidenav-close">
+          <a>{{ curso.nome }}</a>
+        </li>
+      </ul>
+    </div>
+  </script>
+
+  <script>
+  
+  function animateCSS(element, animationName, callback) {
+    const node = document.querySelector(element)
+    node.classList.add('animated', animationName)
+
+    function handleAnimationEnd() {
+        node.classList.remove('animated', animationName)
+        node.removeEventListener('animationend', handleAnimationEnd)
+
+        if (typeof callback === 'function') callback()
+    }
+
+    node.addEventListener('animationend', handleAnimationEnd)
+}
+  
+  </script>
+
+  <script src="main.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var elems = document.querySelectorAll(".sidenav");
+      var instances = M.Sidenav.init(elems);
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      var elems = document.querySelectorAll(".dropdown-trigger");
+      var instances = M.Dropdown.init(elems, {
+        coverTrigger: false
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      var elems = document.querySelectorAll(".materialboxed");
+      var instances = M.Materialbox.init(elems);
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      var elems = document.querySelectorAll("select");
+      var instances = M.FormSelect.init(elems);
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      var elems = document.querySelectorAll(".collapsible");
+      var instances = M.Collapsible.init(elems);
+    });
+  </script>
+</html>
