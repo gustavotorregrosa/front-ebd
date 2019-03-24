@@ -104,97 +104,106 @@
                     Adicionar
                   </button>
                   <br /><br /><br />
-                  <ul class="collapsible popout">
-                    <li>
-                      <div class="collapsible-header">Primeira pergunta</div>
-                      <div class="collapsible-body ">
-                        <div class="row">
-                          <div class="col m6">
-                            <div class="input-field col s12">
-                              <textarea
-                                id="textarea1"
-                                class="materialize-textarea"
-                                style="min-height: 10em;"
-                              ></textarea>
-                              <label for="textarea1">Pergunta</label>
-                            </div>
-                          </div>
-                          <div class="col m6">
-                            <div class="input-field col s12">
-                              <textarea
-                                id="textarea1"
-                                class="materialize-textarea"
-                                style="min-height: 10em;"
-                              ></textarea>
-                              <label for="textarea1">Resposta</label>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="collapsible-header">Segunda pergunta</div>
-                      <div class="collapsible-body">
-                        <div class="row">
-                          <div class="col m6">
-                            <div class="input-field col s12">
-                              <textarea
-                                id="textarea1"
-                                class="materialize-textarea"
-                                style="min-height: 10em;"
-                              ></textarea>
-                              <label for="textarea1">Pergunta</label>
-                            </div>
-                          </div>
-                          <div class="col m6">
-                            <div class="input-field col s12">
-                              <textarea
-                                id="textarea1"
-                                class="materialize-textarea"
-                                style="min-height: 10em;"
-                              ></textarea>
-                              <label for="textarea1">Resposta</label>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="collapsible-header">Terceira pergunta</div>
-                      <div class="collapsible-body">
-                        <div class="row">
-                          <div class="col m6">
-                            <div class="input-field col s12">
-                              <textarea
-                                id="textarea1"
-                                class="materialize-textarea"
-                                style="min-height: 10em;"
-                              ></textarea>
-                              <label for="textarea1">Pergunta</label>
-                            </div>
-                          </div>
-                          <div class="col m6">
-                            <div class="input-field col s12">
-                              <textarea
-                                id="textarea1"
-                                class="materialize-textarea"
-                                style="min-height: 10em;"
-                              ></textarea>
-                              <label for="textarea1">Resposta</label>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
+
+                  <grupo-perguntas v-bind:perguntas="perguntas"></grupo-perguntas>
+                  
+
+
+                  <!-- <ul class="collapsible popout"> -->
+                  
+                  
+                    <!-- <li v-for="pergunta in perguntas">
+                      <pergunta-individual v-bind:pergunta="pergunta"></pergunta-individual>
+                  </li>  -->
+                  <!-- </ul> -->
                 </div>
               </div>
             </div>
+
+            <button onclick="salvaAlteracao(event);" class="waves-effect waves-light btn left">
+                Salvar
+              </button>
           </form>
         </div>
       </main>
     </div>
   </body>
+
+
+  <script type="text/x-template" id="templ-grupo-perguntas">
+    
+    <ul class="collapsible popout">
+
+      <li v-show="pergunta.tipo === 'perguntalivre'" v-for="pergunta in perguntas">
+          <div class="collapsible-header">{{pergunta.indicador}}</div>
+          <div class="collapsible-body ">
+              <div class="row">
+                <div class="col m6">
+                  <div class="input-field col s12">
+                    <textarea
+                      v-model="pergunta.textopergunta"
+                      id="textarea1"
+                      class="materialize-textarea"
+                      style="min-height: 10em;"
+                    ></textarea>
+                    <label for="textarea1">Pergunta</label>
+                  </div>
+                </div>
+                <div class="col m6">
+                  <div class="input-field col s12">
+                    <textarea
+                    v-model="pergunta.textoresposta"
+                      id="textarea1"
+                      class="materialize-textarea"
+                      style="min-height: 10em;"
+                    ></textarea>
+                    <label for="textarea1">Resposta</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+      </li>
+
+    </ul>
+  
+  
+  </script>
+
+
+<!-- 
+  <script type="text/x-template" id="templ-pergunta">
+    <div v-if="pergunta.tipo === 'perguntalivre'">
+        <div class="collapsible-header">{{pergunta.indicador}}</div>
+        <div class="collapsible-body ">
+          <div class="row">
+            <div class="col m6">
+              <div class="input-field col s12">
+                <textarea
+                  v-model="pergunta.textopergunta"
+                  id="textarea1"
+                  class="materialize-textarea"
+                  style="min-height: 10em;"
+                ></textarea>
+                <label for="textarea1">Pergunta</label>
+              </div>
+            </div>
+            <div class="col m6">
+              <div class="input-field col s12">
+                <textarea
+                v-model="pergunta.textoresposta"
+                  id="textarea1"
+                  class="materialize-textarea"
+                  style="min-height: 10em;"
+                ></textarea>
+                <label for="textarea1">Resposta</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </script> -->
+
 
 
   <script type="text/x-template" id="quadro-conteudo-licao">
@@ -335,22 +344,6 @@
             >
               Lição {{index+1}}: {{licao.nome}}
             </a>
-            <!-- <a href="#!" class="collection-item"
-              >Lição 1: Os primeiros 30 anos</a
-            >
-            <a href="#!" class="collection-item">Lição 2: O baptismo</a>
-            <a href="#!" class="collection-item"
-              >Lição 3: O ministério</a
-            >
-            <a href="#!" class="collection-item active"
-              >Lição 4: O sermão da montanha</a
-            >
-            <a href="#!" class="collection-item"
-              >Lição 5: A fé do centurião</a
-            >
-            <a href="#!" class="collection-item"
-              >Lição 6: A mulher hemorrágica</a
-            > -->
           </div>
         </div>
       </div>
@@ -391,6 +384,12 @@
   <script src="main.js"></script>
 
   <script>
+    function salvaAlteracao(e){
+      e.preventDefault();
+      M.toast({html: 'Alterações salvas'});
+    }
+
+
     document.addEventListener("DOMContentLoaded", function() {
       var elems = document.querySelectorAll(".sidenav");
       var instances = M.Sidenav.init(elems);

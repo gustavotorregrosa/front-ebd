@@ -1,3 +1,9 @@
+Vue.component('grupo-perguntas', {
+  template: "#templ-grupo-perguntas",
+  props:['perguntas']
+});
+
+
 Vue.component('quadro-conteudo-licao', {
   template: "#quadro-conteudo-licao",
   props: ['cursos', 'cursoatual','licaoatual'],
@@ -71,18 +77,79 @@ var meuApp = new Vue({
             {
               nome: 'Sermao da montanha',
               fotocapa: "assets/jesus-7.jpg",
-              conteudo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel diam at libero semper accumsan ut ac est. Proin at viverra lacus, sit amet tincidunt lectus. Sed dui mauris, lacinia a vehicula vel, elementum ut turpis. Aenean pretium augue euismod eros lobortis faucibus. Sed leo nisi, pulvinar ac dictum vitae, dignissim in sem. Nunc in purus turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non diam sem. Maecenas efficitur mi sed massa vulputate porttitor. Integer finibus augue id lacus vehicula, a vestibulum magna tincidunt. Nullam ex odio, iaculis at lectus ac, accumsan aliquet massa. Integer eget sagittis diam. Cras non fringilla libero, et condimentum odio. Nam accumsan diam libero, sit amet molestie ligula tempus a. '
+              conteudo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel diam at libero semper accumsan ut ac est. Proin at viverra lacus, sit amet tincidunt lectus. Sed dui mauris, lacinia a vehicula vel, elementum ut turpis. Aenean pretium augue euismod eros lobortis faucibus. Sed leo nisi, pulvinar ac dictum vitae, dignissim in sem. Nunc in purus turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non diam sem. Maecenas efficitur mi sed massa vulputate porttitor. Integer finibus augue id lacus vehicula, a vestibulum magna tincidunt. Nullam ex odio, iaculis at lectus ac, accumsan aliquet massa. Integer eget sagittis diam. Cras non fringilla libero, et condimentum odio. Nam accumsan diam libero, sit amet molestie ligula tempus a. ',
+              perguntas: [
+                {
+                  tipo: 'perguntalivre',
+                  indicador: 'Pergunta 1',
+                  textopergunta: 'Texto teste pergunta 1',
+                  textoresposta: 'Texto teste resposta 1'
+                },
+                {
+                  tipo: 'perguntalivre',
+                  indicador: 'Pergunta 2',
+                  textopergunta: 'Texto teste pergunta 2',
+                  textoresposta: 'Texto teste resposta 2'
+                },
+                {
+                  tipo: 'perguntalivre',
+                  indicador: 'Pergunta 3',
+                  textopergunta: 'Texto teste pergunta 3',
+                  textoresposta: 'Texto teste resposta 3'
+                },
+                {
+                  tipo: 'perguntalivre',
+                  indicador: 'Pergunta 4',
+                  textopergunta: 'Texto teste pergunta 4',
+                  textoresposta: 'Texto teste resposta 4'
+                }
+              ]
+              
             },
             {
               nome: 'Humildade',
               fotocapa: "assets/jesus-8.jpg",
-              conteudo: 'Lorem Humildade ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel diam at libero semper accumsan ut ac est. Proin at viverra lacus, sit amet tincidunt lectus. Sed dui mauris, lacinia a vehicula vel, elementum ut turpis. Aenean pretium augue euismod eros lobortis faucibus. Sed leo nisi, pulvinar ac dictum vitae, dignissim in sem. Nunc in purus turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non diam sem. Maecenas efficitur mi sed massa vulputate porttitor. Integer finibus augue id lacus vehicula, a vestibulum magna tincidunt. Nullam ex odio, iaculis at lectus ac, accumsan aliquet massa. Integer eget sagittis diam. Cras non fringilla libero, et condimentum odio. Nam accumsan diam libero, sit amet molestie ligula tempus a. '
+              conteudo: 'Lorem Humildade ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel diam at libero semper accumsan ut ac est. Proin at viverra lacus, sit amet tincidunt lectus. Sed dui mauris, lacinia a vehicula vel, elementum ut turpis. Aenean pretium augue euismod eros lobortis faucibus. Sed leo nisi, pulvinar ac dictum vitae, dignissim in sem. Nunc in purus turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non diam sem. Maecenas efficitur mi sed massa vulputate porttitor. Integer finibus augue id lacus vehicula, a vestibulum magna tincidunt. Nullam ex odio, iaculis at lectus ac, accumsan aliquet massa. Integer eget sagittis diam. Cras non fringilla libero, et condimentum odio. Nam accumsan diam libero, sit amet molestie ligula tempus a. ',
+              perguntas: [
+                {
+                  tipo: 'perguntalivre',
+                  indicador: 'Pergunta 5',
+                  textopergunta: 'Texto teste pergunta 5',
+                  textoresposta: 'Texto teste resposta 5'
+                },
+              ]
 
             },
             {
               nome: 'Parabola do samaritano',
               fotocapa: "assets/jesus-9.jpg",
-              conteudo: 'Quisque in viverra nisi. Proin at nibh ante. Mauris nunc ligula, sollicitudin at nunc ut, fringilla vestibulum mauris. Ut gravida ligula non purus congue, ac lobortis est convallis. Vivamus nisl lectus, ullamcorper a elementum ac, ornare ut lorem. Phasellus id velit lorem. Fusce rhoncus turpis vitae magna ornare, nec accumsan turpis iaculis. Fusce nec neque convallis, faucibus lorem eget, rhoncus leo. Proin pellentesque turpis non risus feugiat finibus. Pellentesque hendrerit aliquet aliquam. Ut ac dui suscipit, interdum ante quis, consectetur mauris. Nam metus lorem, rhoncus eleifend neque at, accumsan imperdiet odio. Nam pellentesque vulputate nibh, ut cursus elit sodales ut. Donec urna turpis, volutpat at bibendum at, semper non mi. '
+              conteudo: 'Quisque in viverra nisi. Proin at nibh ante. Mauris nunc ligula, sollicitudin at nunc ut, fringilla vestibulum mauris. Ut gravida ligula non purus congue, ac lobortis est convallis. Vivamus nisl lectus, ullamcorper a elementum ac, ornare ut lorem. Phasellus id velit lorem. Fusce rhoncus turpis vitae magna ornare, nec accumsan turpis iaculis. Fusce nec neque convallis, faucibus lorem eget, rhoncus leo. Proin pellentesque turpis non risus feugiat finibus. Pellentesque hendrerit aliquet aliquam. Ut ac dui suscipit, interdum ante quis, consectetur mauris. Nam metus lorem, rhoncus eleifend neque at, accumsan imperdiet odio. Nam pellentesque vulputate nibh, ut cursus elit sodales ut. Donec urna turpis, volutpat at bibendum at, semper non mi. ',
+              perguntas: [
+                {
+                  tipo: 'perguntalivre',
+                  indicador: 'Pergunta A',
+                  textopergunta: 'Texto teste pergunta 6',
+                  textoresposta: 'Texto teste resposta 6'
+                },
+                {
+                  tipo: 'perguntalivre',
+                  indicador: 'Pergunta B',
+                  textopergunta: 'Texto teste pergunta 7',
+                  textoresposta: 'Texto teste resposta 7'
+                },
+                {
+                  tipo: 'perguntalivre',
+                  indicador: 'Pergunta C',
+                  textopergunta: 'Texto teste pergunta 8',
+                  textoresposta: 'Texto teste resposta 8'
+                },
+                {
+                  tipo: 'perguntalivre',
+                  indicador: 'Pergunta D',
+                  textopergunta: 'Texto teste pergunta 9',
+                  textoresposta: 'Texto teste resposta 9'
+                }
+              ]
             },
           ]
         },
@@ -97,20 +164,81 @@ var meuApp = new Vue({
               {
                 nome: 'Relacionamento com Deus',
                 fotocapa: "assets/jesus-1.jpg",
-                conteudo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel diam at libero semper accumsan ut ac est. Proin at viverra lacus, sit amet tincidunt lectus. Sed dui mauris, lacinia a vehicula vel, elementum ut turpis. Aenean pretium augue euismod eros lobortis faucibus. Sed leo nisi, pulvinar ac dictum vitae, dignissim in sem. Nunc in purus turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non diam sem. Maecenas efficitur mi sed massa vulputate porttitor. Integer finibus augue id lacus vehicula, a vestibulum magna tincidunt. Nullam ex odio, iaculis at lectus ac, accumsan aliquet massa. Integer eget sagittis diam. Cras non fringilla libero, et condimentum odio. Nam accumsan diam libero, sit amet molestie ligula tempus a. '
+                conteudo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel diam at libero semper accumsan ut ac est. Proin at viverra lacus, sit amet tincidunt lectus. Sed dui mauris, lacinia a vehicula vel, elementum ut turpis. Aenean pretium augue euismod eros lobortis faucibus. Sed leo nisi, pulvinar ac dictum vitae, dignissim in sem. Nunc in purus turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non diam sem. Maecenas efficitur mi sed massa vulputate porttitor. Integer finibus augue id lacus vehicula, a vestibulum magna tincidunt. Nullam ex odio, iaculis at lectus ac, accumsan aliquet massa. Integer eget sagittis diam. Cras non fringilla libero, et condimentum odio. Nam accumsan diam libero, sit amet molestie ligula tempus a. ',
+                perguntas: [
+                  {
+                    tipo: 'perguntalivre',
+                    indicador: 'Pergunta F',
+                    textopergunta: 'Texto teste pergunta 10',
+                    textoresposta: 'Texto teste resposta 10'
+                  },
+                  {
+                    tipo: 'perguntalivre',
+                    indicador: 'Pergunta E',
+                    textopergunta: 'Texto teste pergunta 11',
+                    textoresposta: 'Texto teste resposta 11'
+                  },
+                  {
+                    tipo: 'perguntalivre',
+                    indicador: 'Pergunta G',
+                    textopergunta: 'Texto teste pergunta 12',
+                    textoresposta: 'Texto teste resposta 12'
+                  }
+                ]
        
               },
               {
                 nome: 'Voz do SENHOR',
                 fotocapa: "assets/jesus-2.jpg",
-                conteudo: 'Lorem Voz ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel diam at libero semper accumsan ut ac est. Proin at viverra lacus, sit amet tincidunt lectus. Sed dui mauris, lacinia a vehicula vel, elementum ut turpis. Aenean pretium augue euismod eros lobortis faucibus. Sed leo nisi, pulvinar ac dictum vitae, dignissim in sem. Nunc in purus turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non diam sem. Maecenas efficitur mi sed massa vulputate porttitor. Integer finibus augue id lacus vehicula, a vestibulum magna tincidunt. Nullam ex odio, iaculis at lectus ac, accumsan aliquet massa. Integer eget sagittis diam. Cras non fringilla libero, et condimentum odio. Nam accumsan diam libero, sit amet molestie ligula tempus a. '
+                
+                conteudo: 'Lorem Voz ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel diam at libero semper accumsan ut ac est. Proin at viverra lacus, sit amet tincidunt lectus. Sed dui mauris, lacinia a vehicula vel, elementum ut turpis. Aenean pretium augue euismod eros lobortis faucibus. Sed leo nisi, pulvinar ac dictum vitae, dignissim in sem. Nunc in purus turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non diam sem. Maecenas efficitur mi sed massa vulputate porttitor. Integer finibus augue id lacus vehicula, a vestibulum magna tincidunt. Nullam ex odio, iaculis at lectus ac, accumsan aliquet massa. Integer eget sagittis diam. Cras non fringilla libero, et condimentum odio. Nam accumsan diam libero, sit amet molestie ligula tempus a. ',
+                perguntas: [
+                  {
+                    tipo: 'perguntalivre',
+                    indicador: 'Pergunta R',
+                    textopergunta: 'Texto teste pergunta 13',
+                    textoresposta: 'Texto teste resposta 13'
+                  },
+                  {
+                    tipo: 'perguntalivre',
+                    indicador: 'Pergunta S',
+                    textopergunta: 'Texto teste pergunta 14',
+                    textoresposta: 'Texto teste resposta 14'
+                  },
+                  {
+                    tipo: 'perguntalivre',
+                    indicador: 'Pergunta T',
+                    textopergunta: 'Texto teste pergunta 15',
+                    textoresposta: 'Texto teste resposta 15'
+                  }
+                ]
        
 
               },
               {
                 nome: 'Obediência e felicidade',
                 fotocapa: "assets/jesus-3.jpg",
-                conteudo: 'Quisque in viverra nisi. Proin at nibh ante. Mauris nunc ligula, sollicitudin at nunc ut, fringilla vestibulum mauris. Ut gravida ligula non purus congue, ac lobortis est convallis. Vivamus nisl lectus, ullamcorper a elementum ac, ornare ut lorem. Phasellus id velit lorem. Fusce rhoncus turpis vitae magna ornare, nec accumsan turpis iaculis. Fusce nec neque convallis, faucibus lorem eget, rhoncus leo. Proin pellentesque turpis non risus feugiat finibus. Pellentesque hendrerit aliquet aliquam. Ut ac dui suscipit, interdum ante quis, consectetur mauris. Nam metus lorem, rhoncus eleifend neque at, accumsan imperdiet odio. Nam pellentesque vulputate nibh, ut cursus elit sodales ut. Donec urna turpis, volutpat at bibendum at, semper non mi. '
+                conteudo: 'Quisque in viverra nisi. Proin at nibh ante. Mauris nunc ligula, sollicitudin at nunc ut, fringilla vestibulum mauris. Ut gravida ligula non purus congue, ac lobortis est convallis. Vivamus nisl lectus, ullamcorper a elementum ac, ornare ut lorem. Phasellus id velit lorem. Fusce rhoncus turpis vitae magna ornare, nec accumsan turpis iaculis. Fusce nec neque convallis, faucibus lorem eget, rhoncus leo. Proin pellentesque turpis non risus feugiat finibus. Pellentesque hendrerit aliquet aliquam. Ut ac dui suscipit, interdum ante quis, consectetur mauris. Nam metus lorem, rhoncus eleifend neque at, accumsan imperdiet odio. Nam pellentesque vulputate nibh, ut cursus elit sodales ut. Donec urna turpis, volutpat at bibendum at, semper non mi. ',
+                perguntas: [
+                  {
+                    tipo: 'perguntalivre',
+                    indicador: 'Pergunta U',
+                    textopergunta: 'Texto teste pergunta 16',
+                    textoresposta: 'Texto teste resposta 16'
+                  },
+                  {
+                    tipo: 'perguntalivre',
+                    indicador: 'Pergunta V',
+                    textopergunta: 'Texto teste pergunta 17',
+                    textoresposta: 'Texto teste resposta 17'
+                  },
+                  {
+                    tipo: 'perguntalivre',
+                    indicador: 'Pergunta R',
+                    textopergunta: 'Texto teste pergunta 18',
+                    textoresposta: 'Texto teste resposta 18'
+                  }
+                ]
        
               },
             ]
@@ -133,7 +261,27 @@ var meuApp = new Vue({
               {
                 nome: 'Pai Nosso e dia-a-dia',
                 fotocapa: "assets/jesus-5.jpg",
-                conteudo: 'Quisque in viverra Pai Nosso nisi. Proin at nibh ante. Mauris nunc ligula, sollicitudin at nunc ut, fringilla vestibulum mauris. Ut gravida ligula non purus congue, ac lobortis est convallis. Vivamus nisl lectus, ullamcorper a elementum ac, ornare ut lorem. Phasellus id velit lorem. Fusce rhoncus turpis vitae magna ornare, nec accumsan turpis iaculis. Fusce nec neque convallis, faucibus lorem eget, rhoncus leo. Proin pellentesque turpis non risus feugiat finibus. Pellentesque hendrerit aliquet aliquam. Ut ac dui suscipit, interdum ante quis, consectetur mauris. Nam metus lorem, rhoncus eleifend neque at, accumsan imperdiet odio. Nam pellentesque vulputate nibh, ut cursus elit sodales ut. Donec urna turpis, volutpat at bibendum at, semper non mi. '
+                conteudo: 'Quisque in viverra Pai Nosso nisi. Proin at nibh ante. Mauris nunc ligula, sollicitudin at nunc ut, fringilla vestibulum mauris. Ut gravida ligula non purus congue, ac lobortis est convallis. Vivamus nisl lectus, ullamcorper a elementum ac, ornare ut lorem. Phasellus id velit lorem. Fusce rhoncus turpis vitae magna ornare, nec accumsan turpis iaculis. Fusce nec neque convallis, faucibus lorem eget, rhoncus leo. Proin pellentesque turpis non risus feugiat finibus. Pellentesque hendrerit aliquet aliquam. Ut ac dui suscipit, interdum ante quis, consectetur mauris. Nam metus lorem, rhoncus eleifend neque at, accumsan imperdiet odio. Nam pellentesque vulputate nibh, ut cursus elit sodales ut. Donec urna turpis, volutpat at bibendum at, semper non mi. ',
+                perguntas: [
+                  {
+                    tipo: 'perguntalivre',
+                    indicador: 'Pergunta R',
+                    textopergunta: 'Texto teste pergunta 20',
+                    textoresposta: 'Texto teste resposta 20'
+                  },
+                  {
+                    tipo: 'perguntalivre',
+                    indicador: 'Pergunta SDVSF',
+                    textopergunta: 'Texto teste pergunta 21',
+                    textoresposta: 'Texto teste resposta 21'
+                  },
+                  {
+                    tipo: 'perguntalivre',
+                    indicador: 'Pergunta FFDD',
+                    textopergunta: 'Texto teste pergunta 22',
+                    textoresposta: 'Texto teste resposta 22'
+                  }
+                ]
        
               },
               {
@@ -150,6 +298,8 @@ var meuApp = new Vue({
       licaoatual: 0
     };
   },
+
+
   methods:{
     selecionacurso: function(index){
       this.cursoatual = index;
@@ -170,6 +320,9 @@ var meuApp = new Vue({
   computed:{
     nomeatual: function(){
       return this.cursos[this.cursoatual].nome;
+    },
+    perguntas: function(){
+      return this.cursos[this.cursoatual].licoes[this.licaoatual].perguntas;
     }
   }
 });
